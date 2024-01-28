@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+            }
+
+            #box {
+                height: 400px;
+                width: 400px;
+                background-color: rgb(60, 148, 60);
+            }
+
+            #lines {
+                width: 11%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 45%;
+                cursor: pointer;
+                padding-top: 15px;
+                padding-bottom: 35px;
+                padding-left: 9px;
+                border-radius: 10px;
+            }
+
+            #line1 {
+                height: 3px;
+                background-color: white;
+                border-radius: 50px;
+                position: absolute;
+                width: 34px;
+                margin-top: -0.2%;
+                border: none;
+            }
+
+            #line2 {
+                height: 3px;
+                background-color: white;
+                border-radius: 50px;
+                position: absolute;
+                width: 34px;
+                border: none;
+                margin-left: 0%;
+            }
+
+            #line3 {
+                height: 3px;
+                background-color: white;
+                border-radius: 50px;
+                position: absolute;
+                width: 34px;
+                margin-top: 1.5%;
+                border: none;
+            }
+
+            @keyframes line1 {
+                from {
+                    margin-top: -0.2%;
+                }
+
+                to {
+                    margin-top: 0.6%;
+                }
+            }
+
+            @keyframes line2 {
+                from {
+                    width: 34px;
+                    margin-left: 0%;
+                }
+
+                to {
+                    width: 15px;
+                    margin-left: 0.75%;
+                }
+            }
+
+            @keyframes line3 {
+                from {
+                    margin-top: 1.5%;
+                }
+
+                to {
+                    margin-top: 0.6%;
+                }
+            }
+
+            @keyframes rotate1 {
+                from {
+                    rotate: 0;
+                }
+
+                to {
+                    rotate: -45deg;
+                }
+            }
+
+            @keyframes rotate2 {
+                from {
+                    rotate: 0;
+                }
+
+                to {
+                    rotate: 45deg;
+                }
+            }
+
+            /* Reverse Animations */
+            @keyframes reverseR1 {
+                from {
+                    rotate: -45deg;
+                }
+
+                to {
+                    rotate: 0deg;
+                }
+            }
+
+            @keyframes reverseR2 {
+                from {
+                    rotate: 45deg;
+                }
+
+                to {
+                    rotate: 0deg;
+                }
+            }
+
+            @keyframes lineR1 {
+                from {
+                    margin-top: 0.6%;
+                }
+
+                to {
+                    margin-top: -0.2%;
+                }
+            }
+
+            @keyframes lineR2 {
+                from {
+                    width: 15px;
+                    margin-left: 0.75%;
+                }
+
+                to {
+                    width: 34px;
+                    margin-left: 0%;
+                }
+            }
+
+            @keyframes lineR3 {
+                from {
+                    margin-top: 0.6%;
+                }
+
+                to {
+                    margin-top: 1.5%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="lines">
+                <hr id="line1">
+                <hr id="line2">
+                <hr id="line3">
+            </div>
+        </div>
+
+        <script>
+            let lines = document.getElementById("lines");
+            let line1 = document.getElementById("line1");
+            let line2 = document.getElementById("line2");
+            let line3 = document.getElementById("line3");
+            let clicked = true
+
+            lines.addEventListener("click", function deleted() {
+                line1.style.animationName = "line1";
+                line1.style.animationDuration = "0.5s";
+
+                line2.style.animationName = "line2";
+                line2.style.animationDuration = "0.5s";
+
+                line3.style.animationName = "line3";
+                line3.style.animationDuration = "0.5s";
+
+                setTimeout(() => {
+                    line1.style.marginTop = "0.6%";
+                    line3.style.marginTop = "0.6%";
+                    setTimeout(() => {
+                        line2.style.opacity = "0";
+                    }, 100);
+                }, 499);
+
+                setTimeout(() => {
+                    line1.style.animationName = "rotate1";
+                    line1.style.animationDuration = "0.5s";
+
+                    line3.style.animationName = "rotate2";
+                    line3.style.animationDuration = "0.5s";
+                }, 500);
+
+                setTimeout(() => {
+                    line1.style.rotate = "-45deg";
+                    line3.style.rotate = "45deg";
+                }, 1000);
+
+                clicked = false
+                lines.removeEventListener("click", deleted);
+                
+
+                if (clicked === false) {
+                    lines.addEventListener("click", function reverse() {
+
+                        line1.style.animationName = "reverseR1";
+                        line1.style.animationDuration = "0.5s";
+
+                        line3.style.animationName = "reverseR2";
+                        line3.style.animationDuration = "0.5s";
+
+                        setTimeout(() => {
+                            line1.style.rotate = "0deg";
+                            line3.style.rotate = "0deg";
+                        }, 499);
+
+                        setTimeout(() => {
+                            line1.style.animationName = "lineR1";
+                            line1.style.animationName = "0.5s";
+
+                            line2.style.opacity = "1";
+
+                            line3.style.animationName = "lineR3";
+                            line3.style.animationName = "0.5s";
+                        }, 500);
+
+                        setTimeout(() => {
+                            line2.style.animationName = "lineR2";
+                            line2.style.animationDuration = "0.5s";
+                        }, 500);
+
+                        setTimeout(() => {
+                            line1.style.marginTop = "-0.2%";
+                            line3.style.marginTop = "1.5%";
+                        }, 999);
+
+                        lines.addEventListener("click", deleted);
+
+                        lines.removeEventListener("click", reverse);
+                    });
+                }
+                
+            })
+        </script>
+    </body>
+</html>

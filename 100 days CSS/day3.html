@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>003</title>
+
+        <style>
+            #frame {
+                height: 400px;
+                width: 400px;
+                box-shadow: 0px 0px 5px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #444444;
+            }
+
+            #center {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            #circle {
+                width: 200px;
+                height: 200px;
+                background-color: white;
+                border-radius: 100px;
+                clip-path: circle(100px at 100px 100px);
+            }
+
+            #sky {
+                background-color: aqua;
+                z-index: 0;
+                height: 100px;
+                width: 200px;
+                border-radius: 100px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                position: absolute;
+                top: 0%;
+                left: 50%;
+                transform: translate(-50%, -0%);
+                
+            }
+
+            #sun {
+                z-index: 2;
+                height: 35px;
+                width: 35px;
+                background-color: yellow;
+                border-radius: 50px;
+                position: absolute;
+                left: -5%;
+                top: 27%;
+                animation: sun-goes-down 3s cubic-bezier(0, 0, 0, 0) infinite;
+            }
+
+            #ground {
+                background-color: tan;
+                width: 200px;
+                height: 100px;
+                position: absolute;
+                top: 50%;
+                border-radius: 100px;
+                border-top-right-radius: 0px;
+                border-top-left-radius: 0px;
+            }
+
+            /* #left-pyramid {
+                width: 0;
+                height: 0;
+                border: 150px solid transparent;
+                border-top: 0;
+                border-bottom: 300px solid red;
+            } */
+
+            /* Animation */
+
+            @keyframes sun-goes-down {
+                0% {
+                    top: 27%;
+                    left: -5%;
+                }
+
+                10% {
+                    top: 10%;
+                    left: 10%;
+                }
+
+                50% {
+                    top: 0%;
+                    left: 20%;
+                }
+
+                75% {
+                    top: -5%;
+                    left: 40%;
+                }
+
+                85% {
+                    top: 1%;
+                    left: 65%;
+                }
+
+                100% {
+                    left: 85%;
+                    top: 27%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="frame">
+            <div id="center">
+                <div id="circle">
+                    <div id="sky"></div>
+                    <div id="sun"></div>
+                    <div id="ground"></div>
+                    <div id="left-pyramid"></div>
+                    <div id="right-pyramid"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

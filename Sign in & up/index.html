@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign in and up</title>
+        <style>
+            body {
+                background-color: hsl(0, 62%, 52%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+            }
+
+            form {
+                background-color: blueviolet;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 50%;
+                border-radius: 15px;
+                /* border: solid black 2px; */
+                height: 40vh;
+                box-shadow: 30px 30px 10px;
+            }
+
+            #elabel {
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: white;
+            }
+
+            #email {
+                outline: none;
+                padding-left: 10px;
+                border-radius: 50px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+            }
+
+            #password {
+                outline: none;
+                padding-left: 10px;
+                border-radius: 50px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+            }
+
+            #plabel {
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: white;
+            }
+
+            #submit {
+                font-size: 20px;
+                border-radius: 50px;
+                cursor: pointer;
+                border: solid black 2px;
+                padding: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                transition: all .5s;
+            }
+
+            #submit:hover {
+                background-color: black;
+                color: white;
+                border-color: white;
+            }
+
+            #sign_up {
+                margin-top: 6%;
+                font-size: 15px;
+                text-decoration: none;
+                position: absolute;
+                margin-left: 14%;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            #sign_up:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+
+            <div>
+                <label id="elabel" for="email">Email</label>
+                <br>
+                <input type="text" id="email" name="email" placeholder="email@gmail.com" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label id="plabel" for="password">Password</label>
+                <br>
+                <input id="password" type="password" maxlength="12" name="password" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="submit"></label>
+                <input id="submit" type="submit" value="Sign In">
+            </div>
+
+            <a id="sign_up" href="signup.html">Sign Up</a>
+
+        </form>
+    </body>
+</html>

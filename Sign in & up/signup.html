@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign up</title>
+
+        <style>
+            body {
+                background-color: hsl(0, 62%, 52%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+            }
+
+            form {
+                background-color: blueviolet;
+                width: 50%;
+                border-radius: 15px;
+                /* border: solid black 2px; */
+                height: 65vh;
+                box-shadow: 30px 30px 10px;
+            }
+
+            #names {
+                display: flex;
+                justify-content: space-around;
+                flex-direction: row;
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 5%;
+            }
+
+            #input_label {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #input_label2 {
+                display: flex;
+                flex-direction: column;  
+            }
+
+            #first_name {
+                width: 75%;
+                outline: none;
+                font-size: 20px;
+                border-radius: 50px;
+                padding-left: 15px;
+            }
+
+            #last_name {
+                width: 75%;
+                outline: none;
+                font-size: 20px;
+                border-radius: 50px;
+                padding-left: 15px;
+            }
+
+            #first_label {
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: white;
+            }
+
+            #second_label {
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: white;
+            }
+
+            #emails {
+                display: flex;
+                flex-direction: column;
+                margin-left: 25%;
+                margin-right: auto;
+                width: 47%;
+            }
+
+            .elabel {
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: white;
+            }
+
+            .email_input {
+                outline: none;
+                font-size: 20px;
+                border-radius: 50px;
+                padding-left: 15px;
+            }
+
+            #passwords {
+                display: flex;
+                flex-direction: column;
+                margin-left: 25%;
+                margin-right: auto;
+                width: 30%;
+            }
+
+            .p_label {
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: white;
+            }
+
+            .p_input {
+                outline: none;
+                font-size: 20px;
+                border-radius: 50px;
+                padding-left: 15px;
+            }
+
+            #sign_up {
+                margin-left: 25%;
+                margin-top: 2%;
+                border-radius: 50px;
+                font-size: 20px;
+                background-color: white;
+                border: solid black 2px;
+                padding: 10px;
+                transition: all .5s;
+            }
+
+            #sign_up:hover {
+                background-color: black;
+                color: white;
+                border-color: white;
+                cursor: pointer;
+            }
+
+            #sign_in {
+                font-size: 15px;
+                color: white;
+                text-decoration: none;
+                font-family: Arial, Helvetica, sans-serif;
+                position: absolute;
+                margin-left: 4%;
+            }
+
+            #sign_in:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+
+            <div id="names">
+                <div id="input_label">
+                    <label id="first_label" for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="John" maxlength="15" required>
+                </div>
+
+                <div id="input_label2">
+                    <label id="second_label" for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" placeholder="Anderson" maxlength="15" required>
+                </div>
+            </div>
+
+            <br>
+
+            <div id="emails">
+                <label class="elabel" for="email">Email</label>
+                <input type="text" class="email_input" name="email" placeholder="email@gmail.com" required>
+                
+                <label class="elabel" for="confirm_email">Confirm email</label>
+                <input type="text" class="email_input" name="confirm_email" placeholder="email@gmail.com" required>
+            </div>
+
+            <br>
+
+            <div id="passwords">
+                <label class="p_label" for="password">Password</label>
+                <input type="password" class="p_input" name="password" maxlength="20" required>
+                
+                <label class="p_label" for="confirm_password">Confirm password</label>
+                <input type="password" class="p_input" name="confirm_password" maxlength="20" required>
+            </div>
+
+            <input id="sign_up" type="submit" value="Sign Up">
+
+            <a id="sign_in" href="index.html">Sign In</a>
+        </form>
+    </body>
+</html>

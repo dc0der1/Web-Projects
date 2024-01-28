@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <img width="500" src="" id="image">
+        <img width="500" src="" id="image2"> -->
+
+        <script>
+            //Fetch With Images
+
+            catchimage()
+
+            .then(response => {
+                console.log('Complete')
+            })
+
+            .catch(error => {
+                console.log('error!');
+                console.error(error);
+            })
+
+            async function catchimage() {
+                const urls = ['image.jpg', 'minecraft.jpg', 'minecraft2.jpg'];
+                const responses = await Promise.all(urls.map(url => fetch(url)));
+                const blobs = await Promise.all(responses.map(response => response.blob()))
+
+                function createImgElement(blob) {
+                    const img = document.createElement("img");
+                    img.src = URL.createObjectURL(blob);
+                    img.width = "400";
+                    img.height = "400";
+                    document.body.appendChild(img);
+                }
+
+                blobs.forEach(createImgElement);
+            }
+
+            
+        </script>
+    </body>
+</html>

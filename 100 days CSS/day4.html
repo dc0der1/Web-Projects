@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>004</title>
+
+        <style>
+            #box {
+                height: 400px;
+                width: 400px;
+                box-shadow: 0px 0px 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: coral;
+            }
+
+            #circle1 {
+                height: 0px;
+                width: 0px;
+                background-color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 100px;
+                box-shadow: 5px 5px 30px;
+            }
+
+            #circle2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                border-radius: 100px;
+                box-shadow: 5px 5px 20px;
+                height: 0px;
+                width: 0px;
+            }
+
+            #circle3 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                border-radius: 100px;
+                box-shadow: 5px 5px 20px;
+                height: 0px;
+                width: 0px;
+            }
+
+            @keyframes main {
+                from {
+                    height: 0px;
+                    width: 0px;
+                }
+
+                to {
+                    height: 100px;
+                    width: 100px;
+                }
+            }
+
+            @keyframes circle2 {
+                from {
+                    height: 0px;
+                    width: 0px;
+                }
+
+                to {
+                    height: 70px;
+                    width: 70px;
+                }
+            }
+
+            @keyframes circle3 {
+                from {
+                    height: 0px;
+                    width: 0px;
+                }
+
+                to {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+
+            @keyframes circle3R {
+                from {
+                    height: 40px;
+                    width: 40px;
+                }
+
+                to {
+                    height: 0px;
+                    width: 0px;
+                }
+            }
+
+            @keyframes circle2R {
+                from {
+                    height: 70px;
+                    width: 70px;
+                }
+
+                to {
+                    height: 0px;
+                    width: 0px;
+                }
+            }
+
+            @keyframes mainR {
+                from {
+                    height: 100px;
+                    width: 100px;
+                }
+
+                to {
+                    height: 1px;
+                    width: 1px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="circle1"></div>
+            <div id="circle2"></div>
+            <div id="circle3"></div>
+        </div>
+
+        <script>
+            let circle1 = document.getElementById("circle1");
+            let circle2 = document.getElementById("circle2");
+            let circle3 = document.getElementById("circle3");
+
+            // animation: name duration timing-function delay iteration-count direction fill-mode;
+
+            setInterval(() => {
+                circle1.style.animation = "main 1s ease-in-out 0s alternate forwards";
+                circle2.style.animation = "circle2 1s ease-in-out 0.5s alternate forwards";
+                circle3.style.animation = "circle3 1s ease-in-out 1s alternate forwards";
+
+                setTimeout(() => {
+                    circle1.style.animation = "mainR 1s ease-in-out 1s alternate backwards";
+                    circle2.style.animation = "circle2R 1s ease-in-out 0.5s alternate backwards";
+                    circle3.style.animation = "circle3R 1s ease-in-out 0s alternate backwards";
+                }, 2000);
+            }, 4500);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock Paper Scissors</title>
+
+        <style>
+            body {
+                text-align: center;
+                background-color: hsl(0, 0%, 50%);
+            }
+
+            h1 {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            h3 {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            button {
+                height: 100px;
+                width: 100px;
+                border-radius: 50px;
+                border: solid 2px black;
+            }
+
+            #rock {
+                background-image: url("stone.jpg");
+                background-repeat: no-repeat;
+                background-size: 90px;
+                background-position-x: center;
+                background-position-y: center;
+                cursor: pointer;
+                transition: all .5s;
+                background-color: white;
+            }
+
+            #paper {
+                background-image: url("paper.jpg");
+                background-repeat: no-repeat;
+                background-size: 70px;
+                background-position-x: center;
+                background-position-y: center;
+                background-color: white;
+                transition: all .5s;
+                cursor: pointer;
+            }
+
+            #scissors {
+                background-image: url("scissors.jpg");
+                background-repeat: no-repeat;
+                background-size: 100px;
+                background-position-y: center;
+                background-position-x: center;
+                background-color: white;
+                transition: all .5s;
+                cursor: pointer;
+            }
+
+            #rock:hover {
+                background-size: 100px;
+            }
+
+            #paper:hover {
+                background-size: 80px;
+            }
+
+            #scissors:hover {
+                background-size: 110px;
+            }
+
+            #player_score {
+                color: rgb(117, 196, 0);
+            }
+
+            #computer_score {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Rock | Paper | Scissors</h1>
+        <div id="choices">
+            <button id="rock"></button>
+            <button id="paper"></button>
+            <button id="scissors"></button>
+        </div>
+        <div id="players_choices">
+            <h3 id="player">Player: </h3>
+            <h3 id="computer">Computer: </h3>
+        </div>
+        <div id="scores">
+            <h3 id="player_score">Your score: 0</h3>
+            <h3 id="computer_score">Computer score: 0</h3>
+        </div>
+
+        <script>
+            let player_score = document.getElementById("player_score");
+            let computer_score = document.getElementById("computer_score");
+            let player_answer = document.getElementById("player");
+            let computer_answer = document.getElementById("computer");
+            let choices = ["Rock", "Paper", "Scissors"];
+            let rock = document.getElementById("rock");
+            let paper = document.getElementById("paper");
+            let scissors = document.getElementById("scissors");
+            let player_choice = "";
+            let player = 0;
+            let computer = 0;
+
+            rock.addEventListener("click", () => {
+                let computer_choice = Math.floor(Math.random() * choices.length);
+
+                player_choice = choices[0];
+                player_answer.innerText = "Player: " + player_choice;
+
+                if (computer_choice === 0) {
+                    computer_answer.innerText = "Computer: Rock";
+                }
+
+                if (computer_choice === 1) {
+                    computer_answer.innerText = "Computer: Paper";
+                }
+
+                if (computer_choice === 2) {
+                    computer_answer.innerText = "Computer: Scissors";
+                }
+
+                //Scores
+                if (player_choice === "Rock" && computer_choice === 1) {
+                    computer += 1;
+                    computer_score.innerText = "Computer score: " + computer;
+                }
+
+                if (player_choice === "Rock" && computer_choice === 2) {
+                    player += 1
+                    player_score.innerText = "Your score: " + player;
+                }
+
+            })
+
+            paper.addEventListener("click", () => {
+                let computer_choice = Math.floor(Math.random() * choices.length);
+
+                player_choice = choices[1];
+                player_answer.innerText = "Player: " + player_choice;
+
+                if (computer_choice === 0) {
+                    computer_answer.innerText = "Computer: Rock";
+                }
+
+                if (computer_choice === 1) {
+                    computer_answer.innerText = "Computer: Paper";
+                }
+
+                if (computer_choice === 2) {
+                    computer_answer.innerText = "Computer: Scissors";
+                }
+
+                //Scores
+                if (player_choice === "Paper" && computer_choice === 0) {
+                    player += 1;
+                    player_score.innerText = "Your score: " + player;
+                }
+
+                if (player_choice === "Paper" && computer_choice === 2) {
+                    computer += 1
+                    computer_score.innerText = "Computer score: " + computer;
+                }
+
+            })
+
+            scissors.addEventListener("click", () => {
+                let computer_choice = Math.floor(Math.random() * choices.length);
+
+                player_choice = choices[2];
+                player_answer.innerText = "Player: " + player_choice;
+
+                if (computer_choice === 0) {
+                    computer_answer.innerText = "Computer: Rock";
+                }
+
+                if (computer_choice === 1) {
+                    computer_answer.innerText = "Computer: Paper";
+                }
+
+                if (computer_choice === 2) {
+                    computer_answer.innerText = "Computer: Scissors";
+                }
+
+                //Scores
+                if (player_choice === "Scissors" && computer_choice === 0) {
+                    computer += 1;
+                    computer_score.innerText = "Computer score: " + computer;
+                }
+
+                if (player_choice === "Scissors" && computer_choice === 1) {
+                    player += 1
+                    player_score.innerText = "Your score: " + player;
+                }
+
+            })
+        </script>
+    </body>
+</html>
