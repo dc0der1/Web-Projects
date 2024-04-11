@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="To Do List" content="Type down your tasks!">
+        <title>TDL</title>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            :root {
+                --font-size: 20px;
+                --font-weight: bolder;
+            }
+
+            body {
+                background-color: rgb(172, 160, 52);
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                display: flex;
+            }
+
+            #input-container {
+                background-color: white;
+                border: solid 2px black;
+                padding: 20px;
+                border-radius: 50px;
+            }
+
+            #input {
+                outline: none;
+                border-radius: 50px;
+                padding-left: 10px;
+                font-size: 20px;
+                color: black;
+                width: 300px;
+            }
+
+            #input:focus {
+                background-color: black;
+                color: white;
+            }
+
+            #input:focus::placeholder {
+                color: white;
+            }
+
+            #add-btn {
+                font-size: 20px;
+                border-radius: 50px;
+                border: solid black 2px;
+                background-color: green;
+                color: white;
+                font-weight: bolder;
+                transition: all .5s;
+                cursor: pointer;
+            }
+
+            #add-btn:hover {
+                background-color: white;
+                color: green;
+            }
+
+            #tasks-div {
+                background-color: white;
+                border: solid 2px black;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 10px;
+                width: 24%;
+                padding: 30px 30px;
+            }
+
+            #task {
+                position: relative;
+            }
+
+            #text {
+               position: absolute;
+               top: 50%;
+               transform: translateY(-50%);
+               background: none;
+               border: none;
+               font-size: var(--font-size);
+               margin-left: -25px;
+            }
+
+            #check-task {
+                position: absolute;
+                margin-left: 195px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: var(--font-size);
+                background-color: green;
+                border-radius: 5px;
+                border: solid black 2px;
+                color: white;
+                font-weight: var(--font-weight);
+                transition: all .5s;
+                cursor: pointer;
+            }
+
+            #remove-task {
+                position: absolute;
+                margin-left: 265px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: var(--font-size);
+                border-radius: 5px;
+                background-color: red;
+                color: white;
+                font-weight: var(--font-weight);
+                transition: all .5s;
+                cursor: pointer;
+                border: solid black 2px;
+            }
+
+            #check-task:hover {
+                background-color: white;
+                color: green;
+            }
+
+            #remove-task:hover {
+                background-color: white;
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="input-container">
+            <input placeholder="Enter your task" id="input" type="text">
+            <button id="add-btn">+</button>
+        </div>
+
+        <script>
+            let inputContainer = document.getElementById("input-container");
+            let input = document.getElementById("input");
+            let addbtn = document.getElementById("add-btn");
+
+            addbtn.addEventListener("click", () => {
+
+                let tasks = document.createElement("div");
+                tasks.setAttribute("id", "tasks-div");
+                document.body.appendChild(tasks);
+
+                let task = document.createElement("div");
+                task.setAttribute("id", "task");
+                tasks.appendChild(task);
+
+                let text = document.createElement("button");
+                text.setAttribute("id", "text");
+                text.innerText = input.value;
+                task.appendChild(text);
+
+                let checkbtn = document.createElement("button");
+                checkbtn.setAttribute("id", "check-task");
+                checkbtn.innerText = "Done";
+                task.appendChild(checkbtn);
+
+                let removebtn = document.createElement("button");
+                removebtn.setAttribute("id", "remove-task");
+                removebtn.innerText = "Delete";
+                task.appendChild(removebtn);
+
+                if (input.value === "") {
+                    alert("Please enter a task!");
+                    document.body.removeChild(tasks);
+                }
+
+                checkbtn.addEventListener("click", () => {
+                    text.style.textDecoration = "line-through";
+                })
+
+                removebtn.addEventListener("click", () => {
+                    document.body.removeChild(tasks);
+                })
+            })
+        </script>
+    </body>
+</html>
