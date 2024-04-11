@@ -1098,7 +1098,7 @@ bottom_mid.addEventListener("click", function bottomMid() {
         
     }
 
-    if (top_M === isO && top_M === isO && bottom_M === isO) {
+    if (top_M === isO && mid_M === isO && bottom_M === isO) {
 
         finnished = true
         won = true
